@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f4f7;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h3 {
+            color: #007bff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+        .form-control {
+            border-radius: 5px;
+            border-color: #ccc;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Welcome To Aviranth Enterprises</h2>
+    <div class="row">
+        <div class="col-6">
+            <button id="adminButton" class="btn btn-primary w-100">Admin Login</button>
+        </div>
+        <div class="col-6">
+            <button id="studentButton" class="btn btn-primary w-100">Student Login</button>
+        </div>
+    </div>
+
+    <div id="studentLogin" class="mt-3" style="display:none;">
+        <h3>Student Login</h3>
+        <form method="POST" action="/student/login">
+            <div class="form-group">
+                <label for="studentUsername">Username:</label>
+                <input type="text" class="form-control" id="studentUsername" name="username" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="studentPassword">Password:</label>
+                <input type="password" class="form-control" id="studentPassword" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Login</button>
+        </form>
+    </div>
+
+    <div id="adminLogin" class="mt-3" style="display:none;">
+        <h3>Admin Login</h3>
+        <form method="POST" action="/admin/login">
+            <div class="form-group">
+                <label for="adminUsername">Username:</label>
+                <input type="text" class="form-control" id="adminUsername" name="username" required>
+            </div>
+            <div class="form-group mt-2">
+                <label for="adminPassword">Password:</label>
+                <input type="password" class="form-control" id="adminPassword" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Login</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('studentButton').onclick = function() {
+        document.getElementById('studentLogin').style.display = 'block';
+        document.getElementById('adminLogin').style.display = 'none';
+    };
+    document.getElementById('adminButton').onclick = function() {
+        document.getElementById('adminLogin').style.display = 'block';
+        document.getElementById('studentLogin').style.display = 'none';
+    };
+</script>
+</body>
+</html>
